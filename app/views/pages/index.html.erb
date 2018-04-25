@@ -1,0 +1,26 @@
+
+
+
+<h3 style="color: white; text-align: center;">Shift week history</h3>
+
+
+<table style="width: 25%;">
+  <thead>
+    <tr>
+
+
+
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @shiftweeks.each do |shiftweek| %>
+    <tr>
+      <td class="day"><%= link_to "Shiftweek ending (clickable)", page_path(shiftweek), class: "shiftweek_link" %></td>
+      <td class="day"><%= shiftweek.week_ending %></td>
+
+     </tr>
+    <% end %>
+  </tbody>
+</table>

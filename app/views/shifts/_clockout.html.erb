@@ -1,0 +1,23 @@
+<%= form_with(model: clockout, local: true) do |form| %>
+  <% if clockout.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(clockout.errors.count, "error") %> prohibited this clockout from being saved:</h2>
+
+      <ul>
+      <% clockout.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+    <div class="field">
+      <%= form.hidden_field :clockout, id: :clockin_break_clock_out_time, value: Time.now.getlocal %>
+    </div>
+
+
+  <div class="actions">
+    <%= form.submit value: break_shift, class: 'clock_out' %>
+  </div>
+<% end %>

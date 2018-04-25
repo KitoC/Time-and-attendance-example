@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+
+<% total_hours = 0 %>
+<h3 style="color: white; text-align: center;">This pay week</h3>
+
+
+<table style="width: 100%;">
+  <thead>
+    <tr>
+      <th>Day</th>
+      <th>Date</th>
+      <th>Clock in time</th>
+      <th>Clock out time</th>
+      <th>Hours/shift</th>
+      <th>Break hours/shift</th>
+      <th>Hours(minus break)</th>
+
+
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @shifts.each do |shift| %>
+    <tr>
+      <td class="day"><%= shift.clockin.strftime("%a") %></td>
+      <td><%= shift.clockin.getlocal.strftime("%d/%m/%Y") %></td>
+      <td><%= shift.clockin.getlocal.strftime("%I:%M %P") %></td>
+      <td><%= shift.clockout.getlocal.strftime("%I:%M %P") %></td>
+      <td><%= hours_worked = ((convert_hours(shift.clockout) - convert_hours(shift.clockin)) / 60).round(2)  %></td>
+      <td><%= break_time(shift) %></td>
+      <td><%= shift_hours = hours_worked - break_time(shift)  %></td>
+      <% total_hours += shift_hours  %>
+
+     </tr>
+    <% end %>
+  </tbody>
+</table>
+<div style="display: inline-flex; justify-content: flex-end; width: 95%;">
+<h3 style="color: white;">Total hours:  </h3>
+<h3 style="color: lightgreen;"><%= total_hours.round(2) %></h3>
+</div>
+<br>

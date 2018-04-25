@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ClockInDemo</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' %>
+
+    <%= stylesheet_link_tag    '//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css' %>
+
+
+    <%= javascript_include_tag 'https://code.jquery.com/jquery-1.12.4.js' %>
+    <%= javascript_include_tag 'https://code.jquery.com/ui/1.12.1/jquery-ui.js' %>
+    <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <body style="margin: 0;" id="bootstrap-overrides">
+      <nav class="nav_bar">
+        <%= link_to 'Clockin screen', root_path, class: "nav_button" %>
+        <% if user_signed_in? %>
+          <%= link_to 'View your shiftweeks', pages_path, class: "nav_button" %>
+          <%= link_to 'View your last shift', shifts_path, class: "nav_button" %>
+          <%= link_to 'Log out', destroy_user_session_path, class: "nav_button far_right", method: :delete %>
+
+        <% else %>
+          <%= link_to 'Log In', new_user_session_path, class: "nav_button far_right" %>
+          <%= link_to 'Sign Up', new_user_registration_path, class: "nav_button far_right" %>
+        <% end %>
+      </nav>
+
+
+
+    <%= yield %>
+  </body>
+</html>

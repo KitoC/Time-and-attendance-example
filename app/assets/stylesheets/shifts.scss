@@ -1,0 +1,51 @@
+// Place all the styles related to the shifts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.clock_in
+{
+  background: #4cd11f;
+  border-radius: 5px;
+  border: none;
+  height: 40px;
+  color: white;
+  font-weight: bolder;
+}
+
+.clock_out
+{
+  background: red;
+  border-radius: 5px;
+  border: none;
+  height: 40px;
+  color: white;
+  font-weight: bolder;
+}
+table, th, td {
+    border: 1px solid white;
+    color: white;
+    padding: 10px;
+}
+
+.time_table
+{
+  grid-template-columns: repeat(7, 1fr);
+
+  width: 70%;
+  height: auto;
+}
+.grid_item
+{
+  border: 1px solid white;
+  width: 10%;
+  height: 10%;
+}
+th
+{
+  color: lightgreen;
+}
+.day
+{
+  color: orange;
+}

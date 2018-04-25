@@ -1,0 +1,24 @@
+<%= form_with(model: clockin, local: true) do |form| %>
+  <% if clockin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(clockin.errors.count, "error") %> prohibited this clockin from being saved:</h2>
+
+      <ul>
+      <% clockin.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+    <div class="field">
+      <%= form.hidden_field :clockin, id: :clockin_clock_in_time, value: Time.now.getlocal %>
+    </div>
+
+
+
+  <div class="actions">
+    <%= form.submit  value: break_shift, class: 'clock_in' %>
+  </div>
+<% end %>

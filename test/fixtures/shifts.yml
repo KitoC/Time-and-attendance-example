@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  clock_out_time: 2018-04-22 11:11:40
+  clock_in_time: 2018-04-22 11:11:40
+
+two:
+  clock_out_time: 2018-04-22 11:11:40
+  clock_in_time: 2018-04-22 11:11:40

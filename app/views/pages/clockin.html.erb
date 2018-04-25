@@ -1,0 +1,21 @@
+<%= last_shiftweek_check  %>
+<%= day_check  %>
+
+<div style="display: flex; justify-content: center;">
+  <% if @on_break == false && @on_shift == true  %>
+    <%= render 'shifts/clockin', clockin: Break.new, break_shift: 'Start Break' %>
+
+  <% elsif @on_break == true &&  @on_shift == true %>
+    <%= render 'shifts/clockout', clockout: @shift.shifts.last.breaks.last, break_shift: 'End Break' %>
+
+  <% end %>
+</div>
+
+<div style="display: flex; justify-content: center; margin-top: 150px;">
+  <% if @on_shift == false %>
+      <%= render 'shifts/clockin', clockin: Shift.new, break_shift: 'Start Shift' %>
+
+  <% elsif @on_shift == true && @on_break == false %>
+      <%= render 'shifts/clockout', clockout: @shift.shifts.last, break_shift: 'End Shift' %>
+  <% end %>
+</div>

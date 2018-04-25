@@ -1,0 +1,29 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.flexbox
+{
+  width: 80%;
+  align-self: center;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.flex_item
+{
+  margin: 0.5em;
+  width: 6em;
+  height: 6em;
+  border: 3px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #3fafd7;
+}
+.shiftweek_link:visited
+{
+  color: orange;
+}
