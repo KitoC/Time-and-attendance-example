@@ -21,8 +21,10 @@
       <nav class="nav_bar">
         <%= link_to 'Clockin screen', root_path, class: "nav_button" %>
         <% if user_signed_in? %>
+          <% if current_user.on_shift == false %>
           <%= link_to 'View your shiftweeks', pages_path, class: "nav_button" %>
-          <%= link_to 'View your last shift', shifts_path, class: "nav_button" %>
+            <%= link_to 'View your last shift', shifts_path, class: "nav_button" %>
+          <% end %>
           <%= link_to 'Log out', destroy_user_session_path, class: "nav_button far_right", method: :delete %>
 
         <% else %>
